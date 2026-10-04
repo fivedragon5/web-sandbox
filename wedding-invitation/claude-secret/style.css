@@ -1,0 +1,145 @@
+﻿*{box-sizing:border-box}html,body{margin:0;width:100%;min-height:100%}body{min-height:100dvh;display:grid;place-items:center;background:#fff}button,input{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,.terminal:focus-visible{outline:2px solid #da9778;outline-offset:3px}.container{width:min(430px,calc(100% - 24px),calc((100dvh - 24px)*390/844));aspect-ratio:390/844;display:flex;flex-direction:column;overflow:hidden;background:#191918;color:#e2dfd6;font:11px/1.75 "SFMono-Regular",Consolas,"Liberation Mono",monospace;color-scheme:dark}.topbar{min-height:55px;display:flex;align-items:center;gap:12px;padding:0 18px;border-bottom:1px solid #30302b;flex-shrink:0}.topbar a{color:#aaa99d;text-decoration:none;font-size:26px}.topbar small{color:#737369;font-size:10px}.demo{margin-left:auto;color:#9bac8c;font-size:9px;letter-spacing:1px}.terminal{flex:1;min-height:0;overflow-y:auto;padding:24px 19px 12px;scrollbar-width:thin;scrollbar-color:#41413a transparent}.welcome{border:1px solid #78513d;border-radius:5px;padding:15px 13px 12px}.brand{display:flex;align-items:center;gap:9px}.spark{color:#df9778;font-size:36px;line-height:1}h1{font-size:15px;letter-spacing:-.4px;margin:0;font-weight:600}h1 small{font-size:9px;color:#888578;font-weight:400;letter-spacing:0}p{margin:0}.brand p{font-size:9px;color:#959286}.greeting{display:flex;gap:15px;align-items:center;margin:22px 0}.greeting pre{font-size:15px;line-height:1.1;color:#df9778;letter-spacing:-1px;margin:0;flex-shrink:0}.greeting p{font-size:10px}.greeting small{color:#969387;font-size:9px}.environment{border-top:1px solid #39312a;padding-top:9px;font-size:9px;color:#858376}.session-note{margin:20px 0 17px;color:#717165;font-size:9px;display:flex;justify-content:space-between}.prompt,.answer,.tool{display:flex;align-items:baseline;gap:9px;margin:17px 0}.prompt{padding:10px 11px;background:#262622;border-radius:3px}.prompt b{color:#df9778}.answer b,.tool b{font-size:10px;flex-shrink:0}.answer p{color:#c5c4b9}.tool b{color:#9cb78b}.tool span{color:#929387;font-size:10px}.tool small{display:block;color:#7e8273;font-size:9px;margin-top:3px}.prompt p,.answer p,.tool p{overflow-wrap:anywhere;white-space:pre-wrap}.diff{margin:15px 0 19px 17px;border:1px solid #34362e;border-radius:4px;overflow:hidden}.diff>div{padding:7px 10px;font-size:9px;display:flex;justify-content:space-between;color:#a4a494;border-bottom:1px solid #34362e}.diff>div span{color:#9bb68c}.diff pre{padding:10px;margin:0;background:#1d211b;color:#a2be91;font:9px/1.9 monospace;white-space:pre-wrap;overflow-wrap:anywhere}.diff .removed{color:#c18c82}.activity{display:flex;gap:8px;align-items:center;color:#c68e72;font-size:10px;margin:20px 0 7px}.spinner{font-size:18px}#elapsed{margin-left:auto;color:#73776a;font-size:9px}.running .spinner{animation:spin 2.4s linear infinite}.composer{flex-shrink:0;padding:12px 18px max(14px,env(safe-area-inset-bottom));border-top:1px solid #30302a;background:#191918}.suggestions{display:flex;gap:7px;margin-bottom:13px}.suggestions button{padding:7px 10px;min-height:34px;color:#a5a597;border:1px solid #393b31;border-radius:4px;background:#22231e;font-size:9px}form{display:flex;gap:10px;align-items:center;border-top:1px solid #7b6c55;border-bottom:1px solid #7b6c55;padding:11px 10px}form label{color:#df9778;font-size:16px}input{width:100%;min-width:0;border:0;background:transparent;color:#deddd2;font-size:12px;padding:6px 0;border-radius:0}input::placeholder{color:#737367}#send{border:0;border-radius:4px;background:#d99676;color:#231e18;width:32px;height:32px;flex-shrink:0;font-size:19px}.meta{display:flex;justify-content:space-between;align-items:center;color:#9cb48a;font-size:9px;margin-top:7px}.meta small{color:#73766a;font-size:9px}#reset{min-height:32px;border:0;background:transparent;color:#949687;font-size:9px}.footer-line{display:flex;justify-content:space-between;gap:5px;margin-top:7px;color:#616456;font-size:8px}button:disabled{opacity:.45;cursor:default}@keyframes spin{to{transform:rotate(360deg)}}@media(max-width:480px){.container{width:100%;height:100dvh;aspect-ratio:auto}input{font-size:16px}}@media(prefers-reduced-motion:reduce){.running .spinner{animation:none}}
+/* The simulated boot stream stays inside the mobile terminal. */
+.demo { display: inline-flex; align-items: center; gap: 5px; }
+#session-label { width: calc(7ch + 8px); flex-shrink: 0; text-align: left; }
+.session-lock { width: 14px; height: 14px; flex-shrink: 0; }
+.lock-open { display: none; }
+.granted .lock-closed { display: none; }
+.granted .lock-open { display: initial; }
+.granted .demo { color: #b7d79f; }
+.code,.stream{display:flex;gap:9px;align-items:baseline;margin:12px 0}.code b,.stream b{flex-shrink:0;color:#d99a79;font-size:10px}.code pre,.stream pre{min-width:0;margin:0;white-space:pre-wrap;overflow-wrap:anywhere;font:10px/1.8 Consolas,monospace}.code{padding:12px 10px;background:#20271e;border-left:2px solid #91b87b;border-radius:3px}.code pre{color:#b1d49a}.stream pre{color:#7eafa7}.boot-track{height:2px;background:#30372b;margin:1px 0 14px;overflow:hidden}#boot-progress{height:100%;width:0;background:#b6cd95;box-shadow:0 0 10px #a9d880;transition:width .25s}#gate-message{padding:0 0 14px}#gate-message>span{color:#b9d89a;font-size:11px;font-weight:bold;letter-spacing:2px}#gate-message p{color:#bbbcae;font-size:10px;margin-top:5px}.unlocked form{border-color:#a3c587}.unlocked #send{background:#b6cd95}.unlocked .activity{color:#acc68f}input:disabled{opacity:.6}@media(prefers-reduced-motion:reduce){#boot-progress{transition:none}}
+/* Quiet motion follows the session state without shifting the layout. */
+.running .spinner {
+  animation: spin 2.4s linear infinite, status-breathe 2.8s ease-in-out infinite;
+}
+#boot-progress { position: relative; overflow: hidden; }
+.processing #boot-progress::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 30%, #e0edcd 50%, transparent 70%);
+  opacity: .5;
+  animation: progress-glide 2.6s ease-in-out infinite;
+}
+form label { position: relative; flex-shrink: 0; }
+form label::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 12px;
+  top: 50%;
+  right: -9px;
+  margin-top: -6px;
+  background: #b6cd95;
+  opacity: 0;
+}
+.unlocked:not(.processing) form:not(:focus-within) label::after {
+  animation: cursor-blink 1.6s step-end infinite;
+}
+@keyframes status-breathe {
+  0%, 100% { opacity: .65; }
+  50% { opacity: 1; }
+}
+@keyframes progress-glide {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(100%); }
+}
+@keyframes cursor-blink {
+  0%, 100% { opacity: .75; }
+  50% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .running .spinner,
+  .processing #boot-progress::after,
+  .unlocked:not(.processing) form:not(:focus-within) label::after {
+    animation: none;
+  }
+}
+/* Keep the welcome mark quietly alive throughout the session. */
+.spark {
+  display: inline-block;
+  flex-shrink: 0;
+  animation: spin 18s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .spark { animation: none; }
+}
+/* A gentle pulse keeps the ready cue readable while awaiting input. */
+.unlocked:not(.processing) #gate-message > span {
+  animation: ready-breathe 3.6s ease-in-out infinite;
+}
+@keyframes ready-breathe {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .5; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .unlocked:not(.processing) #gate-message > span { animation: none; }
+}
+/* Crisp pixel geometry keeps the mascot consistent across fonts and devices. */
+.claude-mascot {
+  display: block;
+  width: 64px;
+  height: 56px;
+  flex-shrink: 0;
+}
+/* Compact CLI usage meters sit directly below the command line. */
+.composer { container-type: inline-size; }
+.token-usage { display: flex; align-items: center; flex-wrap: nowrap; gap: .25em; margin-top: 10px; font-size: min(10px, 2.4cqi); line-height: 1.8; white-space: nowrap; }
+.token-usage > * { flex-shrink: 0; }
+.usage-model { color: #55a4c2; width: 16ch; margin-right: 1ch; white-space: nowrap; }
+.usage-group { display: inline-flex; align-items: center; gap: .25em; }
+.usage-percent { color: #55bb92; width: 4ch; }
+.usage-divider { color: #79796d; }
+.usage-bar { display: inline-block; position: relative; overflow: hidden; flex-shrink: 0; width: 3em; height: 1.2em; background-size: 3px 3px; }
+.usage-primary { background-image: radial-gradient(#33785c .7px, transparent .9px); background-color: #192720; border-left: 5px solid #49bc8c; }
+.usage-secondary { background-image: radial-gradient(#375c86 .7px, transparent .9px); background-color: #1b222b; border-left: 2px solid #568abb; }
+.usage-time { display: grid; color: #919186; white-space: nowrap; }
+.usage-time > *, .usage-time::after { grid-area: 1 / 1; }
+.usage-time::after { content: '11시 40분 AW컨벤션 안산'; visibility: hidden; }
+.usage-time-replacement { justify-self: start; }
+.usage-primary { --usage-fill: 11%; --usage-color: #49bc8c; border-left: 0; }
+.usage-secondary { --usage-fill: 1%; --usage-color: #568abb; border-left: 0; }
+.usage-bar::after { content: ''; position: absolute; inset: 0 auto 0 0; width: var(--usage-fill); background: var(--usage-color); opacity: .75; }
+.time-replaced .usage-time-original { visibility: hidden; }
+/* The grid reserves the final invitation width; normal spaces separate the original text. */
+#usage-duration { display: inline-block; }
+.usage-live-time { display: inline-block; }
+#usage-clock { display: inline-block; }
+/* A contained security alert preserves the input layout for retries. */
+.warning { display: flex; gap: 9px; margin: 14px 0; padding: 10px; border-left: 2px solid #d4786c; background: #30201e; color: #e4a095; }
+.warning b { flex-shrink: 0; }
+.warning p { white-space: pre-wrap; overflow-wrap: anywhere; }
+.denied .composer { border-top-color: #884c43; }
+.denied form { border-color: #b26a5e; }
+.denied #gate-message > span, .denied .activity { color: #e09687; }
+.denied #send { background: #cf8a79; }
+.denied #boot-progress { background: #cd7c6d; box-shadow: 0 0 10px #9f5448; }
+.denied.processing .composer { animation: alert-breathe 1.4s ease-in-out 1; }
+@keyframes alert-breathe { 50% { background-color: #30211e; } }
+@media (prefers-reduced-motion: reduce) { .denied.processing .composer { animation: none; } }
+/* Reveal the invitation inside the original terminal status line. */
+.granted form { border-color: #afd099; }
+.granted .activity { color: #b7d79f; }
+.granted .composer { border-top-color: #7f9e69; animation: granted-glow 1.4s ease-in-out 1; }
+.granted #boot-progress { box-shadow: 0 0 12px #acd28b; }
+.success-card { display: flex; align-items: baseline; gap: 9px; margin: 17px 0; color: #c5c4b9; animation: invitation-enter .5s ease-out both; }
+.success-card b { color: #a8c891; font-size: 11px; }
+.success-card p { font: inherit; white-space: pre-wrap; }
+.revealing:not(.invited) .token-usage { animation: numbers-reveal .8s ease-in-out both; }
+.invited .token-usage { animation: invitation-enter .6s ease-out both; }
+.invited .usage-time { color: #b3b5a8; }
+.invited .activity { color: #a8c891; }
+@keyframes granted-glow { 50% { background: #242a20; } }
+@keyframes numbers-reveal { 40% { filter: brightness(1.3); } 100% { opacity: .35; } }
+@keyframes invitation-enter { from { opacity: .35; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .granted .composer, .success-card, .revealing:not(.invited) .token-usage, .invited .token-usage { animation: none; }
+}
+/* Alternating animation names retrigger a small highlight on each reveal. */
+.token-usage.reveal-flash-a, .invited .token-usage.reveal-flash-a { animation: reveal-flash-a .45s ease-out both; }
+.token-usage.reveal-flash-b { animation: reveal-flash-b .45s ease-out both; }
+@keyframes reveal-flash-a { 0% { filter: brightness(1.35); } 100% { filter: brightness(1); } }
+@keyframes reveal-flash-b { 0% { filter: brightness(1.35); } 100% { filter: brightness(1); } }
+@media (prefers-reduced-motion: reduce) {
+  .token-usage.reveal-flash-a, .invited .token-usage.reveal-flash-a, .token-usage.reveal-flash-b { animation: none; }
+}
